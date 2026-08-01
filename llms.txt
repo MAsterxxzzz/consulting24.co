@@ -108,3 +108,21 @@ Information here reflects 2026 market conditions and is general guidance, not le
 - Opening a bank/payment account (Panama) — https://www.consulting24.co/blog/panama-crypto-company-bank-account/
 - Panama S.A. vs Foundation — https://www.consulting24.co/blog/panama-sa-vs-foundation-crypto/
 - Director & UBO privacy in Panama — https://www.consulting24.co/blog/panama-director-ubo-privacy/
+
+## Crowdfunding licenses (ECSPR) — service line added 2026-08
+
+- **What:** EU crowdfunding service provider (CSP) authorization under Regulation (EU) 2020/1503 (ECSPR) for lending- and investment-based crowdfunding platforms. One licence from any member state passports to all 27 EU states via an Art 18 notification (EUR 0 fee, 15-calendar-day clock). Own funds: higher of EUR 25,000 or 1/4 prior-year fixed overheads — or an EU-covering insurance policy (Art 11). Offer cap: EUR 5,000,000 per project owner per 12 months.
+- **Direct delivery — Estonia:** authorization by Finantsinspektsioon (Estonian Financial Supervision Authority; NOT the FIU). Consulting24 fee EUR 37,000 fixed (staged EUR 3,000 + EUR 34,000), optional business plan EUR 3,000; state fee EUR 1,000; statutory review 25 working days completeness + 3 months on a complete file, realistically ~6-9 months elapsed. Base documentation refined through two completed rounds of Finantsinspektsioon review; approval always rests with the regulator.
+- **Advise and coordinate:** Lithuania (Bank of Lithuania, EUR 710 state fee, ~3-5 months practice), Latvia (Latvijas Banka, EUR 2,500 + EUR 4,000/year + up to 1.4% of gross revenue).
+- **Comparison coverage:** Netherlands (AFM, EUR 200/h capped EUR 75,000), Ireland (CBI, EUR 0 fee + levies/substance), UK (FCA permissions, no EU access post-Brexit).
+- Machine-readable data: https://www.consulting24.co/data/crowdfunding.json
+
+### Crowdfunding license pages
+- Crowdfunding license (hub) — https://www.consulting24.co/crowdfunding-license/
+- Estonia crowdfunding license (direct delivery) — https://www.consulting24.co/crowdfunding-license-estonia/
+- Cost of a crowdfunding license in Estonia — https://www.consulting24.co/cost-crowdfunding-license-estonia/
+- Estonia vs Lithuania crowdfunding license — https://www.consulting24.co/estonia-vs-lithuania-crowdfunding-license/
+- Estonia vs Latvia crowdfunding license — https://www.consulting24.co/estonia-vs-latvia-crowdfunding-license/
+- Estonia vs Netherlands crowdfunding license — https://www.consulting24.co/estonia-vs-netherlands-crowdfunding-license/
+- Estonia vs Ireland crowdfunding license — https://www.consulting24.co/estonia-vs-ireland-crowdfunding-license/
+- Estonia vs UK crowdfunding license — https://www.consulting24.co/estonia-vs-uk-crowdfunding-license/
