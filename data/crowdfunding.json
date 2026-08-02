@@ -1,0 +1,97 @@
+{
+  "source": "Consulting24 (X24Consulting OU, reg 16971898, Tallinn)",
+  "note": "EU crowdfunding service provider (CSP) authorization under Regulation (EU) 2020/1503 (ECSPR) for lending- and investment-based platforms. Constants across all EU member states: own funds = higher of EUR 25,000 or 1/4 of prior-year fixed overheads, satisfiable by own funds OR an EU-covering insurance policy (Art 11); review = 25 working days completeness check + 3 months decision on a complete file (Art 12); offer cap EUR 5,000,000 per project owner per 12 months; passporting via Art 18 notification = EUR 0 fee, 15-calendar-day clock. service_model: direct = Consulting24 prepares and files; advise-and-coordinate = we guide you and coordinate vetted local partners; comparison-only = we do NOT provide that licence, covered for comparison. Approval always rests with the regulator; no approval is guaranteed.",
+  "updated": "2026-08-01",
+  "regime_constants": {
+    "regulation": "Regulation (EU) 2020/1503 (ECSPR)",
+    "own_funds": "higher of EUR 25,000 or 1/4 prior-year fixed overheads, or insurance policy covering the EU (Art 11)",
+    "statutory_review": "25 working days completeness + 3 months decision on a complete application (Art 12)",
+    "offer_cap": "EUR 5,000,000 per project owner per 12 months",
+    "passporting": "Art 18 notification, EUR 0, 15 calendar days per member state"
+  },
+  "jurisdictions": [
+    {
+      "slug": "estonia",
+      "name": "Estonia",
+      "service_model": "direct",
+      "regulator": "Finantsinspektsioon (Estonian Financial Supervision Authority)",
+      "state_fee": "EUR 1,000",
+      "our_fee": "EUR 37,000 fixed (staged EUR 3,000 + EUR 34,000); optional business plan EUR 3,000",
+      "timeline_practice": "~6-9 months elapsed from company zero to licence",
+      "facts": [
+        "Application filed in Estonian via the Finantsinspektsioon portal (mandatory since 18.03.2026)",
+        "Register checked August 2026: 1 active CSP (Estateguru, lending); Crowdestate withdrew its authorization 13.04.2026; no equity/investment-based CSP has ever been licensed in Estonia",
+        "Mandatory team: salaried CEO and CFO, AML officer, data protection (compliance) officer; at least one Estonian-resident management board member (local director) is required; IT may be outsourced",
+        "0% corporate income tax on retained profits; 22/78 on distributions",
+        "Base documentation refined through two completed rounds of Finantsinspektsioon review; approval always rests with the regulator"
+      ],
+      "page": "https://www.consulting24.co/crowdfunding-license-estonia/"
+    },
+    {
+      "slug": "lithuania",
+      "name": "Lithuania",
+      "service_model": "advise-and-coordinate",
+      "regulator": "Bank of Lithuania (Lietuvos bankas)",
+      "state_fee": "EUR 710 (paid to the State Tax Inspectorate before filing)",
+      "timeline_practice": "~3-5 months in practice (fastest credible claim in the EU)",
+      "facts": [
+        "14-15 authorized CSPs, all lending/real-estate models; no equity CSP",
+        "Lithuanian crowd-investing market: EUR 278.4M across 500k+ transactions in 2024"
+      ],
+      "page": "https://www.consulting24.co/estonia-vs-lithuania-crowdfunding-license/"
+    },
+    {
+      "slug": "latvia",
+      "name": "Latvia",
+      "service_model": "advise-and-coordinate",
+      "regulator": "Latvijas Banka",
+      "state_fee": "EUR 2,500 filing + EUR 4,000/year supervision + up to 1.4% of gross revenue (cap EUR 100,000/year)",
+      "timeline_practice": "fastest recent Baltic throughput: 4 new CSP licences issued Jul 2025 - Mar 2026",
+      "facts": [
+        "7 authorized CSPs as of August 2026; one equity platform (CrowdedHero)",
+        "Free pre-licensing consultations offered by the regulator"
+      ],
+      "page": "https://www.consulting24.co/estonia-vs-latvia-crowdfunding-license/"
+    },
+    {
+      "slug": "netherlands",
+      "name": "Netherlands",
+      "service_model": "comparison-only",
+      "regulator": "Autoriteit Financiele Markten (AFM)",
+      "state_fee": "EUR 200/hour, capped at EUR 75,000",
+      "timeline_practice": "varies; total project cost commonly EUR 100,000+",
+      "facts": [
+        "20 CSPs on the AFM register (register PDF dated 01.06.2026) - the deepest market of the northern EU",
+        "Application form available only by emailing the AFM CSP mailbox"
+      ],
+      "page": "https://www.consulting24.co/estonia-vs-netherlands-crowdfunding-license/"
+    },
+    {
+      "slug": "ireland",
+      "name": "Ireland",
+      "service_model": "comparison-only",
+      "regulator": "Central Bank of Ireland (CBI)",
+      "state_fee": "EUR 0 application fee; Industry Funding Levy applies (first levied on the CSP sector in 2024)",
+      "timeline_practice": "among the longer EU processes in practice (exact figure unverified)",
+      "facts": [
+        "Mandatory preliminary meeting; Fitness & Probity Individual Questionnaires for all PCF roles; 'mind and management' substance expected in Ireland",
+        "7 CSPs including Republic Europe (formerly Seedrs); the only large English-language ECSPR seat"
+      ],
+      "page": "https://www.consulting24.co/estonia-vs-ireland-crowdfunding-license/"
+    },
+    {
+      "slug": "uk",
+      "name": "United Kingdom",
+      "service_model": "comparison-only",
+      "regulator": "Financial Conduct Authority (FCA)",
+      "state_fee": "GBP 5,640 (P2P, pricing category 5) or GBP 2,820 (arranging/equity, category 4)",
+      "timeline_practice": "~6-12 months realistic",
+      "facts": [
+        "No single 'crowdfunding license' - FCA Part 4A permissions by activity; P2P capital: higher of GBP 50,000 or volume-scaled percentage",
+        "Restricted Mass Market Investments promotions regime + s21 approver gateway since 7 Feb 2024",
+        "A UK authorization gives no EU market access (ECSPR does not apply post-Brexit)"
+      ],
+      "page": "https://www.consulting24.co/estonia-vs-uk-crowdfunding-license/"
+    }
+  ]
+}
