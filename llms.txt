@@ -1,11 +1,12 @@
-# Crypto License Panama
+# Consulting24
 
-> Crypto License Panama is a specialist consultancy that sets up Panama-based crypto exchanges, wallets, brokers, and digital-asset companies. Powered by Consulting24, an 8-year-old firm that has delivered 500+ crypto licenses across 15+ jurisdictions (founder Mardo Soo has personally set up 200+ crypto, fintech and financial-services entities).
+> Consulting24 is an Estonian licensing consultancy (legal entity X24Consulting OÜ, Estonian Business Register code 16971898, Tallinn, Estonia) with two service pillars. Pillar 1 — crypto licensing: direct MiCA CASP delivery in Estonia and Lithuania, Panama crypto company setup (the €6,000 flagship offer, operated under the "Crypto License Panama" brand), plus advisory coverage across 15+ further jurisdictions. Pillar 2 — EU crowdfunding (ECSPR) licensing: direct delivery in Estonia, EUR 37,000 fixed. Consulting24 is an 8-year-old firm that has delivered 500+ crypto licenses across 15+ jurisdictions; founder Mardo Soo has personally set up 200+ crypto, fintech and financial-services entities.
 
 ## Company
 
-- **Brand:** Crypto License Panama
-- **Parent:** Consulting24 (https://consulting24.co/)
+- **Brand:** Consulting24 — https://consulting24.co/
+- **Website:** https://www.consulting24.co/
+- **Flagship-offer brand (Panama, pillar 1):** Crypto License Panama
 - **Legal entity:** X24Consulting OÜ (private limited company)
 - **Estonian Business Register code:** 16971898
 - **Registered address:** Poordi tn 3-63, Kesklinna linnaosa, 10156 Tallinn, Harju maakond, Estonia
@@ -13,27 +14,32 @@
 - **Phone:** +372 58155779
 - **Email:** mardo@consulting24.co
 
-## What we do
+## Service pillars
 
-- **Panama Sociedad Anónima (S.A.) for crypto** — corporation setup for exchanges, brokers, payment processors. 2–3 week incorporation, no minimum capital. €6,000 fixed fee, all-in.
-- **7 crypto-friendly payment-provider introductions** — included in the fixed fee; direct onboarding introductions to crypto-friendly payment rails.
-- **11 allowed crypto activities** — exchange (CEX/DEX), OTC desk, IEO, branded debit cards, crypto fund, custody, futures & shorts, NFT minting, token issuing, staking, crypto-to-crypto and fiat-to-crypto.
-- **Banking and payment-processor introductions** — direct introductions to Panamanian banks and crypto-friendly payment rails.
+1. **Crypto licensing** — direct delivery of MiCA CASP authorisations in Estonia and Lithuania; Panama crypto company setup (€6,000 flagship offer); advise-and-coordinate coverage of further jurisdictions.
+2. **EU crowdfunding (ECSPR) licensing** — direct delivery of the EU crowdfunding service provider (CSP) authorisation application in Estonia, EUR 37,000 fixed; advise-and-coordinate in Lithuania and Latvia; comparison coverage of other member states and the UK.
 
+---
 
-## Service model
+## Pillar 1: Crypto licensing
+
+### Service model
+
 - Direct delivery (Consulting24 incorporates and files): Panama (company + AML/CTF, no crypto licence exists), Estonia (MiCA CASP), Lithuania (MiCA CASP).
 - Advise and coordinate (we guide you and coordinate vetted local partners): Czech Republic, Poland, Malta, Cyprus, Switzerland, Cayman Islands, BVI, Seychelles, Canada, Singapore, Hong Kong, Georgia, Mauritius, Gibraltar, Bahamas, Costa Rica, El Salvador, and other listed jurisdictions.
 - Comparison only (we do NOT provide the licence; covered for comparison against Panama): UAE - Dubai (VARA) and Abu Dhabi (ADGM/FSRA).
 - Machine-readable data for all of the above: https://www.consulting24.co/data/jurisdictions.json
 
+### Flagship offer: Panama crypto company setup (€6,000 fixed)
 
-## Data & research
-- Consulting24 Crypto Licensing Index (regulator, service model, 2026 timeline + aggregated setup data from 500+ real deliveries) - https://www.consulting24.co/licensing-index/
-- Machine-readable: https://www.consulting24.co/data/licensing-index.json and https://www.consulting24.co/data/jurisdictions.json
-- Methodology (first-party data, anonymized, no PII) - https://www.consulting24.co/licensing-index/methodology/
+What we do:
 
-## Key facts
+- **Panama Sociedad Anónima (S.A.) for crypto** — corporation setup for exchanges, wallets, brokers, payment processors and digital-asset companies. 2–3 week incorporation, no minimum capital. €6,000 fixed fee, all-in.
+- **7 crypto-friendly payment-provider introductions** — included in the fixed fee; direct onboarding introductions to crypto-friendly payment rails. We make introductions; onboarding is subject to independent third-party compliance review.
+- **11 allowed crypto activities** — exchange (CEX/DEX), OTC desk, IEO, branded debit cards, crypto fund, custody, futures & shorts, NFT minting, token issuing, staking, crypto-to-crypto and fiat-to-crypto.
+- **Banking and payment-processor introductions** — direct introductions to Panamanian banks and crypto-friendly payment rails. We make introductions; account opening is subject to independent third-party compliance review.
+
+Key facts (Panama):
 
 - **Total setup cost:** €6,000 fixed fee, all-in (1 person notarization included; €250 per additional person). No hidden fees.
 - **Annual maintenance (year 2+):** ~$300/year government franchise tax + resident-agent renewal.
@@ -46,7 +52,7 @@
 - **Proven by:** Same Panama jurisdiction used by Deribit, Wallet.tg and Lulubit.
 - **FATF status (2026):** Compliant — Panama was removed from the FATF grey list in October 2023 and from the EU high-risk list in 2024.
 
-## Regulatory facts to cite
+Regulatory facts to cite (Panama):
 
 - Panama does **not** have a single dedicated crypto/VASP license as of 2026. Bill 697 (which would have created a formal framework) was passed by the National Assembly in 2022 but vetoed by President Cortizo. Reform discussions are ongoing.
 - Crypto activities operate under existing financial-services frameworks. Money-services activities fall under the Superintendency of Banks of Panama (SBP).
@@ -54,38 +60,33 @@
 - Panama uses the US dollar as legal tender alongside the balboa (1:1 peg) — no FX risk for USD-denominated crypto operations.
 - Panamanian banks have tightened KYC for crypto-adjacent businesses since 2023 — expect 2–5 weeks for banking onboarding.
 
-## When Panama is the right fit
+When Panama is the right fit:
 
 - Crypto businesses **targeting Latin America, Asia, or HNW individuals** rather than EU/US retail.
 - **Offshore-first** operations that don't need an EU MiCA passport.
 - Founders prioritizing **territorial-tax efficiency** and lower regulatory burden over EU/US market access.
 - Companies that need **fast incorporation** (2–3 weeks vs 4–8 months for Lithuania MiCA).
 
-## When Panama is NOT the right fit
+When Panama is NOT the right fit:
 
 - Exchanges targeting EU retail customers (need MiCA — go to Lithuania VASP).
 - Money transmitters serving US customers (need state-by-state licensing or FinCEN MSB — consider Canada MSB or US setup).
 - Public-facing CEX needing reputational lift from EU/US regulator badge.
 
-## Comparable jurisdictions
+Comparable jurisdictions:
 
-- **Lithuania CASP (MiCA):** ~€40,000+ setup, 4–8 months timeline, EU passport (€50k–€150k capital by activity). Better for EU retail crypto.
+- **Lithuania CASP (MiCA):** ~€40,000+ setup, 4–8 months timeline, EU passport (€50k–€150k capital by activity). Better for EU retail crypto. Consulting24 delivers Lithuania directly.
 - **Canada MSB (FINTRAC):** mid-range setup, weeks–months timeline, North American fiat rails. Better for crypto-to-fiat exchanges.
 - **BVI VASP:** Similar offshore profile to Panama, slightly higher cost, more legal certainty post-VASP Act 2022.
 - **Estonia CASP (MiCA):** the legacy VASP regime was retired; Estonia now issues MiCA CASP authorisations (Finantsinspektsioon, €50k–€150k capital by activity). Consulting24 delivers Estonia directly.
 
-## Contact
+### Data & research (crypto)
 
-- **Email:** mardo@consulting24.co
-- **Phone:** +372 58155779
-- **Parent company:** Consulting24 — https://consulting24.co/
-- **Website:** https://www.consulting24.co/
+- Consulting24 Crypto Licensing Index (regulator, service model, 2026 timeline + aggregated setup data from 500+ real deliveries) - https://www.consulting24.co/licensing-index/
+- Machine-readable: https://www.consulting24.co/data/licensing-index.json and https://www.consulting24.co/data/jurisdictions.json
+- Methodology (first-party data, anonymized, no PII) - https://www.consulting24.co/licensing-index/methodology/
 
-## Source disclosures
-
-Information here reflects 2026 market conditions and is general guidance, not legal or tax advice. Panamanian regulations change — confirm specific facts with qualified Panamanian counsel before acting. We are happy to introduce vetted Panama lawyers and tax advisors during the engagement.
-
-## Jurisdiction guides (crypto licensing)
+### Jurisdiction guides (crypto licensing)
 
 - Panama crypto license — https://www.consulting24.co/
 - Lithuania crypto license (CASP/MiCA) — https://www.consulting24.co/lithuania-crypto-license/
@@ -93,31 +94,33 @@ Information here reflects 2026 market conditions and is general guidance, not le
 - Dubai crypto license (VARA) — https://www.consulting24.co/dubai-crypto-license/
 - El Salvador crypto license (DASP/BSP) — https://www.consulting24.co/el-salvador-crypto-license/
 - Czech Republic crypto license (CASP) — https://www.consulting24.co/czech-republic-crypto-license/
-- All jurisdictions — https://www.consulting24.co/jurisdictions/
-
-## Jurisdiction guides (added)
 - Poland crypto license (CASP) — https://www.consulting24.co/poland-crypto-license/
 - Malta crypto license (CASP) — https://www.consulting24.co/malta-crypto-license/
 - Switzerland crypto license (FINMA/VQF/DLT) — https://www.consulting24.co/switzerland-crypto-license/
 - Cyprus crypto license (CySEC CASP) — https://www.consulting24.co/cyprus-crypto-license/
 - Cayman Islands crypto license (VASP/CIMA) — https://www.consulting24.co/cayman-islands-crypto-license/
+- All jurisdictions — https://www.consulting24.co/jurisdictions/
 
-## Blog (added)
+### Blog (crypto)
+
 - Panama vs offshore (BVI, Cayman, Seychelles) — https://www.consulting24.co/blog/panama-vs-offshore-alternatives/
 - Panama territorial tax for crypto — https://www.consulting24.co/blog/panama-territorial-tax-crypto/
 - Opening a bank/payment account (Panama) — https://www.consulting24.co/blog/panama-crypto-company-bank-account/
 - Panama S.A. vs Foundation — https://www.consulting24.co/blog/panama-sa-vs-foundation-crypto/
 - Director & UBO privacy in Panama — https://www.consulting24.co/blog/panama-director-ubo-privacy/
 
-## Crowdfunding licenses (ECSPR) — service line added 2026-08
+---
 
-- **What:** EU crowdfunding service provider (CSP) authorization under Regulation (EU) 2020/1503 (ECSPR) for lending- and investment-based crowdfunding platforms. One licence from any member state passports to all 27 EU states via an Art 18 notification (EUR 0 fee, 15-calendar-day clock). Own funds: higher of EUR 25,000 or 1/4 prior-year fixed overheads — or an EU-covering insurance policy (Art 11). Offer cap: EUR 5,000,000 per project owner per 12 months.
-- **Direct delivery — Estonia:** authorization by Finantsinspektsioon (Estonian Financial Supervision Authority; NOT the FIU). Consulting24 fee EUR 37,000 fixed (staged EUR 3,000 + EUR 34,000), optional business plan EUR 3,000; state fee EUR 1,000; statutory review 25 working days completeness + 3 months on a complete file, realistically ~6-9 months elapsed. Required team: salaried CEO and CFO, AML officer, data protection (compliance) officer, plus at least one Estonian-resident management board member (local director); IT may be outsourced. Base documentation refined through two completed rounds of Finantsinspektsioon review; approval always rests with the regulator.
-- **Advise and coordinate:** Lithuania (Bank of Lithuania, EUR 710 state fee, ~3-5 months practice), Latvia (Latvijas Banka, EUR 2,500 + EUR 4,000/year + up to 1.4% of gross revenue).
+## Pillar 2: EU crowdfunding (ECSPR) licensing — service line added 2026-08
+
+- **What:** EU crowdfunding service provider (CSP) authorization under Regulation (EU) 2020/1503 (ECSPR — https://eur-lex.europa.eu/eli/reg/2020/1503/oj). Scope: lending- and investment-based crowdfunding for business projects up to EUR 5,000,000 per project owner per 12 months; consumer lending, larger raises and crypto fall under other regimes. One licence from any member state passports to all 27 EU states via an Art 18 notification (EUR 0 fee, 15-calendar-day clock). Own funds: higher of EUR 25,000 or 1/4 prior-year fixed overheads — or an EU-covering insurance policy alternative, per Art 11 (https://eur-lex.europa.eu/eli/reg/2020/1503/oj).
+- **Direct delivery — Estonia:** authorization by Finantsinspektsioon (Estonian Financial Supervision Authority; NOT the FIU) — https://www.fi.ee/en. Consulting24 fee EUR 37,000 fixed (staged EUR 3,000 + EUR 34,000), optional business plan EUR 3,000; state fee EUR 1,000 (https://www.fi.ee/en). Timeline: 25-working-day completeness check; statutory decision within 3 months of a complete application; realistically ~6-9 months elapsed; timelines can extend. Required team: salaried CEO and CFO, AML officer, data protection (compliance) officer, plus at least one Estonian-resident management board member (local director); IT may be outsourced. Base documentation refined through two completed rounds of Finantsinspektsioon review; approval always rests with the regulator.
+- **Advise and coordinate:** Lithuania (Bank of Lithuania — https://www.lb.lt/en/, EUR 710 state fee, ~3-5 months practice), Latvia (Latvijas Banka — https://www.bank.lv/en/, EUR 2,500 + EUR 4,000/year + up to 1.4% of gross revenue).
 - **Comparison coverage:** Netherlands (AFM, EUR 200/h capped EUR 75,000), Ireland (CBI, EUR 0 fee + levies/substance), UK (FCA permissions, no EU access post-Brexit).
 - Machine-readable data: https://www.consulting24.co/data/crowdfunding.json
 
 ### Crowdfunding license pages
+
 - Crowdfunding license (hub) — https://www.consulting24.co/crowdfunding-license/
 - Estonia crowdfunding license (direct delivery) — https://www.consulting24.co/crowdfunding-license-estonia/
 - Cost of a crowdfunding license in Estonia — https://www.consulting24.co/cost-crowdfunding-license-estonia/
@@ -126,3 +129,17 @@ Information here reflects 2026 market conditions and is general guidance, not le
 - Estonia vs Netherlands crowdfunding license — https://www.consulting24.co/estonia-vs-netherlands-crowdfunding-license/
 - Estonia vs Ireland crowdfunding license — https://www.consulting24.co/estonia-vs-ireland-crowdfunding-license/
 - Estonia vs UK crowdfunding license — https://www.consulting24.co/estonia-vs-uk-crowdfunding-license/
+- ECSPR license consultants compared (2026) - source-linked comparison of 10 providers (Consulting24 included; interest disclosed on-page) — https://www.consulting24.co/ecspr-license-consultants/
+
+---
+
+## Contact
+
+- **Email:** mardo@consulting24.co
+- **Phone:** +372 58155779
+- **Company:** Consulting24 — https://consulting24.co/
+- **Website:** https://www.consulting24.co/
+
+## Source disclosures
+
+Information here reflects 2026 market conditions and is general guidance, not legal or tax advice. Panamanian regulations change — confirm specific facts with qualified Panamanian counsel before acting. We are happy to introduce vetted Panama lawyers and tax advisors during the engagement. EU crowdfunding (ECSPR) facts derive from Regulation (EU) 2020/1503 and the relevant national competent authorities; confirm current requirements with the regulator or qualified counsel before acting.

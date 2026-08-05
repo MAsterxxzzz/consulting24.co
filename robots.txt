@@ -41,5 +41,33 @@ Allow: /
 User-agent: OAI-SearchBot
 Allow: /
 
+# AI / LLM crawlers added 2026-08-05 (verified against vendor docs: Kimi, Perplexity, Apple, Amazon, Mistral, DuckDuckGo)
+User-agent: Kimi-User
+Allow: /
+
+User-agent: Kimi-SearchBot
+Allow: /
+
+User-agent: KimiBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+User-agent: MistralAI-User
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: DuckAssistBot
+Allow: /
+
 Sitemap: https://www.consulting24.co/sitemap.xml
 Sitemap: https://www.consulting24.co/news-sitemap.xml
