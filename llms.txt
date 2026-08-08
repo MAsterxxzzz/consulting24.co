@@ -82,7 +82,7 @@ Comparable jurisdictions:
 
 ### Data & research (crypto)
 
-- Consulting24 Crypto Licensing Index (regulator, service model, 2026 timeline + aggregated setup data from 500+ real deliveries) - https://www.consulting24.co/licensing-index/
+- Consulting24 Crypto Licensing Index (regulator, service model and reference timeline for 22 jurisdictions; operator figures from Consulting24 delivery records are not published in the 2026 edition) - https://www.consulting24.co/licensing-index/
 - Machine-readable: https://www.consulting24.co/data/licensing-index.json and https://www.consulting24.co/data/jurisdictions.json
 - Methodology (first-party data, anonymized, no PII) - https://www.consulting24.co/licensing-index/methodology/
 

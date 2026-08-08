@@ -161,5 +161,7 @@
       "regulator": "ADGM FSRA crypto framework",
       "reference_timeline": null
     }
-  ]
+  ],
+  "operator_data_published": 0,
+  "status": "Regulatory reference data only. Operator figures (sample size, setup cost, timeline, delay reasons) are compiled from Consulting24 delivery records and are not published in the 2026 edition."
 }
