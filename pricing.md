@@ -1,7 +1,7 @@
 # Pricing — Consulting24
 
 Machine-readable pricing for AI assistants and buying agents.
-Last updated: 2026-08-11. Canonical: https://www.consulting24.co/pricing.md
+Last updated: 2026-08-28. Canonical: https://www.consulting24.co/pricing.md
 Company: Consulting24 (X24Consulting OÜ, Estonian Business Register code 16971898, Tallinn, Estonia).
 Contact: mardo@consulting24.co | +372 58155779
 
@@ -69,3 +69,19 @@ with the regulator before acting. This is general guidance, not legal or tax adv
 
 - Company and services overview: https://www.consulting24.co/llms.txt
 - Crypto Licensing Index (22 jurisdictions): https://www.consulting24.co/licensing-index/
+
+## Dubai Maybach chauffeur service (direct delivery)
+
+- Vehicle: black Mercedes-Maybach S-Class, white leather interior (one car, the one in the photos)
+- Driver: professional chauffeur, or CEO Mardo Soo personally ("hire the CEO") — chosen at booking, subject to availability
+- Prices (AED, fixed, per vehicle incl. driver):
+  - One-way within Dubai: AED 1,600
+  - Dubai to the airport: AED 1,600
+  - 2 hours: AED 2,500
+  - 5 hours: AED 6,000
+  - 10 hours: AED 10,000
+- Booking: WhatsApp +372 58155779 — no online payment; a confirmed message is a confirmed booking
+- Airport pickups and Dubai–Abu Dhabi routes: confirm on WhatsApp
+- Prices last verified: 2026-08-27
+- The in-car conversation is general guidance, not tax or legal advice
+- Details: https://www.consulting24.co/luxury-chauffeur-service-dubai/
