@@ -72,6 +72,7 @@ with the regulator before acting. This is general guidance, not legal or tax adv
 
 ## Dubai Maybach chauffeur service (direct delivery)
 
+- Operator: Prime Consulting F.Z.E (Dubai, UAE) — dedicated entity for the car business
 - Vehicle: black Mercedes-Maybach S-Class, white leather interior (one car, the one in the photos)
 - Driver: professional chauffeur, or CEO Mardo Soo personally ("hire the CEO") — chosen at booking, subject to availability
 - Prices (AED, fixed, per vehicle incl. driver):
