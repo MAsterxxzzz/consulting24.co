@@ -77,6 +77,12 @@
 .mb-cta-card p{color:#cbd5e1;max-width:540px;margin-top:10px}
 .mb-table-hl td{background:#fefce8}
 .mb-eff{font-size:.82rem;color:var(--muted)}
+.mb-gallery .ph img,.mb-card-img img{cursor:zoom-in}
+.mb-lightbox{position:fixed;inset:0;z-index:200;background:rgba(12,31,41,.94);display:flex;align-items:center;justify-content:center;padding:24px;cursor:zoom-out}
+.mb-lightbox[hidden]{display:none}
+.mb-lightbox img{max-width:min(1200px,94vw);max-height:86vh;width:auto;height:auto;border-radius:8px;box-shadow:0 20px 60px rgba(0,0,0,.5)}
+.mb-lightbox .cap{position:absolute;bottom:16px;left:0;right:0;text-align:center;color:#cbd5e1;font-size:.9rem}
+.mb-lightbox .x{position:absolute;top:10px;right:14px;background:none;border:0;color:#fff;font-size:2.2rem;line-height:1;cursor:pointer;padding:8px}
 </style>
 <link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="icon" href="/favicon.ico" sizes="32x32"><link rel="apple-touch-icon" href="/apple-touch-icon.png">
 </head><body>
@@ -119,7 +125,7 @@
   <p class="lead">Chauffeur hire in Dubai usually means a fleet and a dispatcher. Here it means one car and a choice of two drivers.</p>
   <div class="mb-cards">
     <div class="mb-card">
-      <div class="mb-card-img"><img src="/img/maybach/maybach-side.jpg" alt="Black Mercedes-Maybach S-Class side profile" width="780" height="519" loading="lazy"></div>
+      <div class="mb-card-img"><img src="/img/maybach/maybach-side.jpg" data-full="/img/maybach/maybach-side-1200.webp" alt="Black Mercedes-Maybach S-Class side profile" width="780" height="519" loading="lazy"></div>
       <div class="mb-card-body">
         <span class="opt">Option one</span>
         <h3>Hire the Drive</h3>
@@ -152,9 +158,9 @@
   <h2>The Car — Black Mercedes-Maybach S-Class, White Leather Interior</h2>
   <p class="lead">One car, not a catalog. The same car in every booking and in every photo on this page. No fleet, no &ldquo;a similar vehicle may be provided.&rdquo; What you book is what pulls up.</p>
   <div class="mb-gallery">
-    <figure><div class="ph"><img src="/img/maybach/maybach-front.jpg" alt="Black Mercedes-Maybach S-Class, front view" width="780" height="519" loading="lazy"></div><figcaption>The car that pulls up</figcaption></figure>
-    <figure><div class="ph"><img src="/img/maybach/maybach-cabin.jpg" alt="Maybach rear cabin with entertainment screens" width="900" height="599" loading="lazy"></div><figcaption>Executive rear cabin</figcaption></figure>
-    <figure><div class="ph"><img src="/img/maybach/maybach-leather.jpg" alt="White nappa leather reclining rear seats" width="900" height="599" loading="lazy"></div><figcaption>White nappa leather</figcaption></figure>
+    <figure><div class="ph"><img src="/img/maybach/maybach-front.jpg" data-full="/img/maybach/maybach-front-1200.webp" alt="Black Mercedes-Maybach S-Class, front view" width="780" height="519" loading="lazy"></div><figcaption>The car that pulls up</figcaption></figure>
+    <figure><div class="ph"><img src="/img/maybach/maybach-cabin.jpg" data-full="/img/maybach/maybach-cabin-1200.webp" alt="Maybach rear cabin with entertainment screens" width="900" height="599" loading="lazy"></div><figcaption>Executive rear cabin</figcaption></figure>
+    <figure><div class="ph"><img src="/img/maybach/maybach-leather.jpg" data-full="/img/maybach/maybach-leather-1200.webp" alt="White nappa leather reclining rear seats" width="900" height="599" loading="lazy"></div><figcaption>White nappa leather</figcaption></figure>
   </div>
 </section>
 
@@ -248,4 +254,21 @@
     <div><h2>Company</h2><a href="/about/">About Consulting24</a><a href="/luxury-chauffeur-service-dubai/">Chauffeur Service Dubai</a><a href="https://consulting24.co/">consulting24.co</a><a href="https://www.linkedin.com/in/mardo-s-00a05ab0/">Mardo Soo on LinkedIn</a></div>
   </div><div class="foot-bottom">&copy; 2026 Consulting24 &middot; X24Consulting O&Uuml; &middot; Reg nr 16971898 &middot; Poordi 3-63, 10156 Tallinn, Estonia &middot; Prices in AED, last verified 27 August 2026 &middot; General guidance, not legal advice.</div></div></footer>
 <div class="sticky-bar"><a href="https://wa.me/37258155779?text=Maybach%20booking%20%E2%80%94%20date%2C%20pickup%2C%20duration%3A%20" class="btn btn-secondary" style="background:var(--ink)">&#128172; WhatsApp</a><a href="#pricing" class="btn btn-primary">See prices</a></div>
+<div class="mb-lightbox" id="mbLightbox" role="dialog" aria-modal="true" aria-label="Enlarged photo" hidden><button class="x" aria-label="Close">&times;</button><img src="" alt=""><div class="cap"></div></div>
+<script>
+(function(){
+  var lb=document.getElementById('mbLightbox'),im=lb.querySelector('img'),cap=lb.querySelector('.cap');
+  function close(){lb.hidden=true;im.removeAttribute('src');document.body.style.overflow='';}
+  document.querySelectorAll('.mb-gallery .ph img,.mb-card-img img').forEach(function(el){
+    el.addEventListener('click',function(){
+      im.src=el.getAttribute('data-full')||el.src;im.alt=el.alt||'';
+      var fig=el.closest('figure'),fc=fig&&fig.querySelector('figcaption');
+      cap.textContent=fc?fc.textContent:(el.alt||'');
+      lb.hidden=false;document.body.style.overflow='hidden';
+    });
+  });
+  lb.addEventListener('click',close);
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!lb.hidden)close();});
+})();
+</script>
 </body></html>
