@@ -1,0 +1,24 @@
+{
+  "service": "Dubai Maybach chauffeur service",
+  "operator": "Prime Consulting F.Z.E",
+  "operator_location": "Dubai, AE",
+  "brand": "Consulting24",
+  "operator_schema_id": "https://www.consulting24.co/luxury-chauffeur-service-dubai/#prime-fze",
+  "offer_catalog_id": "https://www.consulting24.co/luxury-chauffeur-service-dubai/#rates",
+  "currency": "AED",
+  "phone_display": "+372 5815 5779",
+  "phone_wa": "37258155779",
+  "prices_last_verified": "2026-08-27",
+  "prices_last_verified_display": "27 August 2026",
+  "rates": [
+    { "tier": "The Point-to-Point", "booking": "One-way within Dubai", "aed": 1600 },
+    { "tier": "The Airport Run", "booking": "Dubai to the airport", "aed": 1600 },
+    { "tier": "The Consultation", "booking": "2 hours", "aed": 2500, "per_hour": 1250 },
+    { "tier": "The Working Half-Day", "booking": "5 hours", "aed": 6000, "per_hour": 1200 },
+    { "tier": "The Deal Day", "booking": "10 hours", "aed": 10000, "per_hour": 1000 }
+  ],
+  "notes": [
+    "Airport pickups, Dubai-Abu Dhabi routes, overtime/waiting/cancellation terms: confirm on WhatsApp (owner gates open).",
+    "Allowed AED figures on car pages are exactly the rates above plus their per-hour values; anything else fails CI."
+  ]
+}
