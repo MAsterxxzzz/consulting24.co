@@ -19,6 +19,10 @@ for row in R["rates"]:
     if "per_hour" in row:
         allowed_amounts.add(row["per_hour"])
 
+# competitor-published AED figures are allowed only on the comparison pages
+CF_PATH = ROOT / "data" / "competitor-facts.json"
+CF = json.loads(CF_PATH.read_text()) if CF_PATH.exists() else {"allowed_pages": [], "allowed_amounts": []}
+
 errors: list[str] = []
 
 
@@ -36,13 +40,17 @@ def check_page(path: pathlib.Path) -> None:
     if R["operator"] not in t:
         fail(rel, f"missing operator line ({R['operator']})")
     # every AED amount on the page must come from rates.json
+    page_allowed = set(allowed_amounts)
+    if rel in CF["allowed_pages"]:
+        page_allowed |= set(CF["allowed_amounts"])
     for m in re.finditer(r"AED\s*(\d[\d,]*)", t):
         amount = int(m.group(1).replace(",", ""))
         # tolerate the range form "AED 1,600–10,000" (both ends must be allowed)
-        if amount not in allowed_amounts:
-            fail(rel, f"AED {m.group(1)} not in data/rates.json")
-    # if the page shows a verified date, it must match rates.json
-    for m in re.finditer(r"[Ll]ast verified:?\s*([0-9]{1,2} \w+ [0-9]{4})", t):
+        if amount not in page_allowed:
+            fail(rel, f"AED {m.group(1)} not in data/rates.json (or competitor-facts whitelist)")
+    # if the page shows a PRICES verified date, it must match rates.json
+    # ("Facts last verified" on comparison pages tracks competitor-facts.json instead)
+    for m in re.finditer(r"Prices(?: in AED,)? last verified:?\s*([0-9]{1,2} \w+ [0-9]{4})", t):
         if m.group(1) != R["prices_last_verified_display"]:
             fail(rel, f"stale verified date '{m.group(1)}' (rates.json says {R['prices_last_verified_display']})")
 

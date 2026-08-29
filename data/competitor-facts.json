@@ -1,0 +1,39 @@
+{
+  "captured": "2026-08-29",
+  "recheck_due": "2026-11-29",
+  "note": "Every fact sourced from the competitor's own public pages on the capture date. Quarterly re-verification; remove-on-failure same day. AED amounts listed here are competitor-published figures allowed by scripts/check_rates.py ONLY on the pages listed.",
+  "allowed_pages": [
+    "luxury-chauffeur-service-dubai/zofeur-alternative/index.html",
+    "luxury-chauffeur-service-dubai/compare/index.html"
+  ],
+  "allowed_amounts": [
+    350000,
+    1300,
+    850,
+    120,
+    2100,
+    1400,
+    200,
+    4000,
+    500
+  ],
+  "sources": {
+    "zofeur": [
+      "https://www.zofeur.com/",
+      "https://black.zofeur.com/",
+      "https://apps.apple.com/ae/app/zofeur-hire-a-safe-driver/id1520275979"
+    ],
+    "blacklane": [
+      "https://www.blacklane.com/en/dubai/"
+    ],
+    "indus": [
+      "https://www.induschauffeur.com/"
+    ],
+    "marvellink": [
+      "https://www.marvellink.ae/"
+    ],
+    "gccdrive": [
+      "https://gccdrive.com/"
+    ]
+  }
+}
