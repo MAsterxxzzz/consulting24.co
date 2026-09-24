@@ -22,8 +22,8 @@
 .c24-item{position:relative;display:flex;align-items:center}
 .c24-item--mega{position:static}
 .c24-item__top{display:flex;align-items:center;border-radius:8px}
-.c24-link{display:inline-flex;align-items:center;padding:9px 4px 9px 12px;font-weight:600;font-size:.94rem;color:var(--c24-fg);border-radius:8px 0 0 8px;white-space:nowrap;transition:color .15s,background .15s}
-.c24-sub-toggle{width:28px;height:36px;border:0;background:transparent;color:var(--c24-fg-dim);cursor:pointer;padding:0;display:inline-flex;align-items:center;justify-content:center;border-radius:0 8px 8px 0;transition:color .15s,background .15s}
+.c24-link{display:inline-flex;align-items:center;padding:9px 4px;padding-inline-start:12px;font-weight:600;font-size:.94rem;color:var(--c24-fg);border-radius:0;border-start-start-radius:8px;border-end-start-radius:8px;white-space:nowrap;transition:color .15s,background .15s}
+.c24-sub-toggle{width:28px;height:36px;border:0;background:transparent;color:var(--c24-fg-dim);cursor:pointer;padding:0;display:inline-flex;align-items:center;justify-content:center;border-radius:0;border-start-end-radius:8px;border-end-end-radius:8px;transition:color .15s,background .15s}
 .c24-sub-toggle::before{content:"";width:7px;height:7px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:translateY(-2px) rotate(45deg);transition:transform .2s}
 .c24-item.is-active .c24-link{color:#fff;box-shadow:inset 0 -2px 0 var(--c24-accent)}
 .c24-item:hover .c24-link,.c24-item.is-open .c24-link,.c24-item:focus-within .c24-link{color:#fff;background:rgba(255,255,255,.08)}
@@ -36,6 +36,9 @@
   box-shadow:0 22px 50px rgba(3,10,30,.28),0 0 0 1px rgba(12,31,41,.06);padding:8px;opacity:0;visibility:hidden;transform:translateY(8px);
   transition:opacity .16s ease,transform .16s ease,visibility 0s linear .16s;z-index:5}
 .c24-panel::before{content:"";position:absolute;left:0;right:0;top:-12px;height:12px}
+/* The last item (About Us) sits next to the CTA at the viewport edge: open its panel back toward the menu so it
+   never pokes past the edge. Hidden panels still count for scroll overflow (1134px scrollWidth at 1024px). */
+.c24-menu>.c24-item:last-child>.c24-panel{inset-inline-start:auto;inset-inline-end:0}
 .c24-item.is-open>.c24-panel{opacity:1;visibility:visible;transform:none;transition-delay:0s}
 @media (hover:hover) and (min-width:1024px){
   .c24-item:hover>.c24-panel,.c24-item:focus-within>.c24-panel{opacity:1;visibility:visible;transform:none;transition-delay:0s}
@@ -76,6 +79,18 @@
 .c24-header.is-menu-open .c24-burger span:nth-child(3){top:21px;transform:rotate(-45deg)}
 .c24-burger:hover{background:rgba(255,255,255,.08)}
 html.c24-lock{overflow:hidden}
+
+/* small desktop: the full menu + labelled CTA needs ~1160px, so tighten the items and, below 1180px,
+   shrink the CTA to its icon (label kept for screen readers) to stop it covering About Us */
+@media (min-width:1024px) and (max-width:1279.98px){
+  .c24-header__inner{gap:12px}
+  .c24-link{padding-inline-start:9px;font-size:.9rem}
+  .c24-sub-toggle{width:24px}
+}
+@media (min-width:1024px) and (max-width:1179.98px){
+  .c24-wa--bar{width:42px;height:42px;padding:0;gap:0;justify-content:center}
+  .c24-wa--bar span{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+}
 
 /* mobile / tablet: drawer with accordions */
 @media (max-width:1023.98px){
@@ -121,3 +136,4 @@ html.c24-lock{overflow:hidden}
    Hidden by translating off the top instead - no overflow in either writing direction. */
 .skip{position:absolute;left:0;top:0;z-index:1100;transform:translateY(-200%);background:#116dff;color:#fff;padding:10px 16px;border-radius:0 0 8px 0;font-weight:700}
 .skip:focus{left:0;transform:none}
+[dir=rtl] .skip,[dir=rtl] .skip:focus{left:auto;right:0;border-radius:0 0 0 8px}
