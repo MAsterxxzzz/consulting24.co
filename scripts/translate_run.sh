@@ -19,8 +19,8 @@ while true; do
   echo "$out" | tail -1
   done_n=$(echo "$out" | grep -o "translate: done [0-9]*" | grep -o "[0-9]*$")
   [ -z "$done_n" ] && done_n=0
-  INDEXNOW_SKIP=1 "$PY" scripts/publish.py > /dev/null 2>&1
-  git add zh es ar config/translations.json config/page_hashes.json config/indexnow_queue.json \
+  "$PY" scripts/publish.py > /dev/null 2>&1
+  git add zh es ar config/translations.json config/page_hashes.json config/indexnow_queue.json config/indexnow_redirects.json \
           sitemap.xml 'sitemap-*.xml' styles-rtl.css index.html 2>/dev/null
   git add -u -- ':(glob)*/index.html' ':(exclude)editorial-policy/index.html' 2>/dev/null
   if ! git diff --cached --quiet 2>/dev/null; then
