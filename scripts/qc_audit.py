@@ -1,3 +1,4 @@
+import html
 #!/usr/bin/env python3
 """
 qc_audit.py — audit EVERY published page against the Consulting24 QC checklist.
@@ -31,6 +32,17 @@ def audit(path):
     if internal < 5: fails.append(f"links {internal}")
     if 'href="/"' not in h: fails.append("no-home-link")
     if not (50 <= len(title) <= 65): fails.append(f"title {len(title)}")
+    h1 = html.unescape(re.sub(r"<[^>]+>", "", (re.search(r"<h1[^>]*>(.*?)</h1>", h, re.S) or [None, ""])[1])).strip()
+    h1l = h1.lower()
+    stem = html.unescape(re.sub(r"\s*[-|]\s*(Consulting24|C24)\s*$", "", title)).lower()
+    # garbled heading guard (28 Sep 2026, scripts/fix_h1.py): a title pasted in front of
+    # the old H1, a repeated "license", or an over-long heading. Comparison ("vs") pages
+    # excepted; blog/news headlines legitimately extend their trimmed <title>.
+    is_post = "/blog/" in path or "/news/" in path
+    if " vs " not in h1l and h1l != stem:
+        if h1l.count("license") >= 2: fails.append("h1 repeats license")
+        if len(h1) > 90: fails.append(f"h1 {len(h1)}")
+        if stem and not is_post and h1l.startswith(stem) and len(h1l) > len(stem): fails.append("h1 title+tail")
     if not (110 <= len(desc) <= 165): fails.append(f"desc {len(desc)}")
     if "canonical" not in h: fails.append("no-canonical")
     if '"FAQPage"' not in h: fails.append("no-faq-schema")
