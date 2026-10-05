@@ -5,8 +5,6 @@
 [dir=rtl] .answer-box{border-left:0!important;border-right:4px solid var(--accent)!important}
 [dir=rtl] article ul,[dir=rtl] article ol,[dir=rtl] .faq details p{padding-left:0;padding-right:24px}
 [dir=rtl] .faq summary::after{margin-left:0;margin-right:auto}
-[dir=rtl] .skip{left:auto;right:-9999px}
-[dir=rtl] .skip:focus{right:0}
 [dir=rtl] .top-phone::before{order:2}
 [dir=rtl] .btn{flex-direction:row-reverse}
 [dir=rtl] .cta-card{text-align:center}
