@@ -33,6 +33,7 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.join(ROOT, "scripts"))
 from content_hash import content_digest  # noqa: E402
+from table_wrap import wrap_tables  # noqa: E402
 
 BASE = "https://www.consulting24.co"
 STATE = os.path.join(ROOT, "config", "translations.json")
@@ -467,7 +468,7 @@ def build_translation(slug, src_path, lang, translated_slugs):
     if LANGS[lang]["dir"] == "rtl" and "/styles-rtl.css" not in head:
         head = head.replace('<link rel="stylesheet" href="/styles.css">',
                             '<link rel="stylesheet" href="/styles.css">\n<link rel="stylesheet" href="/styles-rtl.css">', 1)
-    page_t = head + region_t + tail
+    page_t = wrap_tables(head + region_t + tail)[0]   # never ship a bare table, even from an unboxed English source
     page_t = rebuild_jsonld(page_t, lang, slug, title_t, desc_t, title_en, desc_en)
     exists = {sl for sl in translated_slugs if os.path.exists(out_path(sl, lang))} | {slug}
     page_t = rewrite_internal_links(page_t, lang, exists, translated_slugs)
