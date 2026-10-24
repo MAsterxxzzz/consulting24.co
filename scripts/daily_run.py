@@ -130,6 +130,7 @@ def run():
             _r = sh(f"python3 {_step}")
             if _r.returncode:                       # a post without its image set must not slip through silently
                 print(f"WARNING: {_step} exit {_r.returncode}: {(_r.stdout + _r.stderr)[-300:]}")
+        sh("python3 scripts/table_wrap.py")   # box any bare <table> (hand-built pages too) so phones never go wide
         sh("python3 scripts/rebuild_indexes.py")
         sh("python3 scripts/publish.py")
         sh("git add -A")
