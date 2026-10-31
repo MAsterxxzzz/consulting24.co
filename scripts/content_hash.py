@@ -23,8 +23,13 @@ _STRIP = [
     re.compile(r'<!--.*?-->', re.S),
 ]
 
+# The scroll box scripts/table_wrap.py puts round a DeepSeek table is layout, not content:
+# hash the table as if it were bare, so boxing 5,156 tables (24 Sep 2026) bumped no lastmod
+# and queued no re-translation. Only the exact tight form table_wrap/generate.py emit.
+_TABLE_BOX = re.compile(r'<div class="t-wrap">(<table class=(["\'])t-wrap-inner\2(?:(?!</table>).)*</table>)</div>', re.S)
+
 def content_digest(html: str) -> str:
-    body = html
+    body = _TABLE_BOX.sub(r"\1", html)
     for rx in _STRIP:
         body = rx.sub("", body)
     body = re.sub(r"\s+", " ", body).strip()
