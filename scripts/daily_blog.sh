@@ -3,6 +3,7 @@
 #   1) publish today's batch of Blogger posts (consulting24_blog.py)
 #   2) re-sync the site's /blog/ hub so EVERY Blogger guide is linked (link_blogger.py)
 #   3) commit + push so the new links deploy live to www.consulting24.co
+#   4) IndexNow: submit the queued URLs once the live site serves them (scripts/indexnow.py)
 # Wired into the com.consulting24.blog LaunchAgent (runs daily).
 set -u
 REPO=/Users/mardosoo/consulting24
@@ -30,13 +31,13 @@ echo "[$(ts)] daily_blog: start" >> logs/daily_blog.log
 git add img/blog 2>/dev/null
 git add -u blog 2>/dev/null          # only tracked posts the sweep rewired, never unrelated WIP
 if git diff --cached --name-only 2>/dev/null | grep -q '^blog/'; then
-  # rewired pages change content hashes: refresh sitemap lastmod / image entries and the IndexNow queue with them
+  # rewired pages change content hashes: refresh sitemap lastmod / image entries and queue them for IndexNow
   "$PY" scripts/publish.py >> logs/daily_blog.log 2>&1 || echo "[$(ts)] publish (images) nonzero" >> logs/daily_blog.log
-  git add sitemap.xml 'sitemap-*.xml' config/page_hashes.json config/indexnow_queue.json config/indexnow_submitted.json 2>/dev/null
+  git add sitemap.xml 'sitemap-*.xml' config/page_hashes.json config/indexnow_queue.json config/indexnow_redirects.json 2>/dev/null
 fi
 if ! git diff --cached --quiet 2>/dev/null; then
   git commit -q -m "daily: unique blog hero images" >> logs/daily_blog.log 2>&1
-  git push -q origin main >> logs/daily_blog.log 2>&1 && git push -q c24est main >> logs/daily_blog.log 2>&1 && echo "[$(ts)] images pushed (origin + live)" >> logs/daily_blog.log
+  git push -q origin main >> logs/daily_blog.log 2>&1 && git push -q c24est main >> logs/daily_blog.log 2>&1 && DEPLOYED=1 && echo "[$(ts)] images pushed (origin + live)" >> logs/daily_blog.log
   sleep 90   # let GitHub Pages deploy the new images before Blogger fetches them
 fi
 
@@ -58,8 +59,8 @@ fi
 # Always rebuild, even when nothing published: this is what ages items out of the 48h
 # Google News window. Skipping it on a quiet day would leave a stale news sitemap.
 "$PY" scripts/news.py build >> logs/daily_blog.log 2>&1 || echo "[$(ts)] news build nonzero" >> logs/daily_blog.log
-# Only run the full publish (sitemap rebuild + IndexNow ping) when a news page actually
-# appeared, so a quiet day does not re-ping 950 unchanged URLs.
+# Only run the full publish (sitemap rebuild + IndexNow queue) when a news page actually
+# appeared; unchanged pages are never queued anyway (content-hash delta).
 if [ -n "$(git status --porcelain news/ | grep -v '_drafts')" ]; then
   "$PY" scripts/publish.py >> logs/daily_blog.log 2>&1 || echo "[$(ts)] publish nonzero" >> logs/daily_blog.log
 fi
@@ -68,13 +69,25 @@ fi
 git add blog/ config/blog_posted.json config/extra_posts.json config/extra_pages.json img/blog \
         news/ news-sitemap.xml sitemap.xml sitemap-pages.xml sitemap-blog.xml \
         config/news_items.json config/news_seen.json config/page_hashes.json \
-        config/indexnow_queue.json config/indexnow_submitted.json \
+        config/indexnow_queue.json config/indexnow_redirects.json \
         zh es ar config/translations.json 'sitemap-*.xml' \
         '*-crypto-license/index.html' 'crypto-exchange-license-*/index.html' 2>/dev/null
 if ! git diff --cached --quiet 2>/dev/null; then
   git commit -q -m "daily: publish Blogger batch + sync site blog links + news desk" >> logs/daily_blog.log 2>&1
-  git push -q origin main >> logs/daily_blog.log 2>&1 && git push -q c24est main >> logs/daily_blog.log 2>&1 && echo "[$(ts)] pushed (origin + live)" >> logs/daily_blog.log
+  git push -q origin main >> logs/daily_blog.log 2>&1 && git push -q c24est main >> logs/daily_blog.log 2>&1 && DEPLOYED=1 && echo "[$(ts)] pushed (origin + live)" >> logs/daily_blog.log
 else
   echo "[$(ts)] no changes to deploy" >> logs/daily_blog.log
+fi
+
+# 4) IndexNow AFTER the deploy. The flush submits only queued URLs whose new version the live site
+#    already serves; after a push it polls up to 15 min (Pages builds take up to 5 min, the CDN caches
+#    10 min). Anything still not live (e.g. a PR not merged yet) stays queued for tomorrow.
+"$PY" scripts/indexnow.py flush --wait "$([ -n "${DEPLOYED:-}" ] && echo 900 || echo 0)" >> logs/daily_blog.log 2>&1 \
+  || echo "[$(ts)] indexnow flush nonzero" >> logs/daily_blog.log
+git add config/indexnow_queue.json config/indexnow_submitted.json 2>/dev/null
+if ! git diff --cached --quiet 2>/dev/null; then
+  # bookkeeping only (config/*.json), so origin only: no extra Pages build; c24est gets it tomorrow
+  git commit -q -m "daily: IndexNow flush" >> logs/daily_blog.log 2>&1
+  git push -q origin main >> logs/daily_blog.log 2>&1
 fi
 echo "[$(ts)] daily_blog: done" >> logs/daily_blog.log
