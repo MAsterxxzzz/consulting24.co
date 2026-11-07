@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 publish.py — regenerate sitemap.xml from all pages, refresh the blog index
-card list, and ping IndexNow (Bing/Yandex) so new content is indexed fast.
+card list, and queue changed URLs for IndexNow (scripts/indexnow.py submits them after deploy).
 
 Run after adding/updating blog posts:
     python3 scripts/publish.py
@@ -163,64 +163,23 @@ with open(os.path.join(ROOT, "sitemap.xml"), "w", encoding="utf-8") as f:
 _json.dump(_store, open(_HASHFILE, "w"), indent=0)   # persist content hashes for next build
 print("sitemap.xml (index): " + ", ".join(f"{n} {len(r)}" for n, r in buckets.items() if r))
 
-# 3. IndexNow (Bing, Yandex, Seznam, Naver share the protocol) — DELTA ONLY.
-#    Submit just the URLs whose content changed since the last build (plus new and removed
-#    ones), through a persistent queue capped at INDEXNOW_CAP per calendar day. Before
-#    2026-09-21 every build pushed all ~1,060 URLs (216.7K lifetime submissions), which Bing
-#    treats as noise. INDEXNOW_SKIP=1 only queues (use before a deploy); INDEXNOW_FORCE_ALL=1
-#    queues every URL once (after a genuine site-wide content change).
-INDEXNOW_CAP = int(os.environ.get("INDEXNOW_CAP", "200"))
-_QUEUE = os.path.join(ROOT, "config", "indexnow_queue.json")
-_LOG = os.path.join(ROOT, "config", "indexnow_submitted.json")
+# 3. IndexNow (Bing, Yandex, Seznam, Naver, Yep share the protocol) — QUEUE ONLY, DELTA ONLY.
+#    Queue just the URLs whose content changed since the last build, plus new, removed and
+#    newly-redirected ones. Nothing is submitted here: this build is not live yet (it still has to
+#    be committed, merged and pushed to c24est), and pinging first made Bing/Yandex crawl new posts
+#    as 404 and changed pages in their old version. scripts/indexnow.py flush submits each queued
+#    URL once the live site serves the new version (daily_blog.sh runs it after its push).
+#    INDEXNOW_FORCE_ALL=1 queues every URL once (after a genuine site-wide content change).
+from indexnow import enqueue, redirect_delta
 _cur = {u for (u, _, _) in pages}
 changed = [u for u in sorted(_cur) if _prev.get(u, {}).get("hash") != _store[u]["hash"]]
 removed = sorted(set(_prev) - _cur)
 if os.environ.get("INDEXNOW_FORCE_ALL"):
     changed = sorted(_cur)
-try:
-    queue = _json.load(open(_QUEUE))
-except Exception:
-    queue = []
-queue = list(dict.fromkeys(queue + changed + removed))          # dedupe, keep order
-try:
-    submitted_log = _json.load(open(_LOG))
-except Exception:
-    submitted_log = {}
-already_today = len(submitted_log.get(_today, []))
-print(f"IndexNow delta: {len(changed)} changed, {len(removed)} removed, {len(queue)} queued, "
-      f"{already_today}/{INDEXNOW_CAP} submitted today")
-keyfile = os.path.join(ROOT, ".indexnow-key")
-if os.environ.get("INDEXNOW_SKIP"):
-    print("IndexNow: INDEXNOW_SKIP set — queued only, nothing submitted")
-elif not os.path.exists(keyfile):
-    print("No .indexnow-key found; skipping IndexNow ping (queue kept)")
-elif queue and already_today < INDEXNOW_CAP:
-    key = read(keyfile).strip()
-    batch = queue[:INDEXNOW_CAP - already_today]
-    payload = json.dumps({
-        "host": "www.consulting24.co",
-        "key": key,
-        "keyLocation": f"{BASE}/{key}.txt",
-        "urlList": batch,
-    }).encode()
-    req = urllib.request.Request(
-        "https://api.indexnow.org/indexnow",
-        data=payload, headers={"Content-Type": "application/json"})
-    try:
-        with urllib.request.urlopen(req, timeout=20) as r:
-            print(f"IndexNow: HTTP {r.status} for {len(batch)} URLs")
-        queue = queue[len(batch):]
-        submitted_log.setdefault(_today, []).extend(batch)
-        for d in [d for d in submitted_log if d < (datetime.date.today() - datetime.timedelta(days=60)).isoformat()]:
-            submitted_log.pop(d)                                  # keep the log to ~60 days
-    except Exception as e:
-        print(f"IndexNow ping failed (non-fatal, queue kept): {e}")
-elif queue:
-    print(f"IndexNow: daily cap reached, {len(queue)} URLs stay queued for tomorrow")
-else:
-    print("IndexNow: nothing changed, nothing submitted")
-_json.dump(queue, open(_QUEUE, "w"), indent=0)
-_json.dump(submitted_log, open(_LOG, "w"), indent=0)
+redirected = redirect_delta()
+queued = enqueue(changed + removed + redirected)
+print(f"IndexNow delta: {len(changed)} changed, {len(removed)} removed, {len(redirected)} redirected, "
+      f"{queued} queued (submitted after deploy by scripts/indexnow.py flush)")
 
 # 4. Submit sitemap to Bing Webmaster Tools via its API (SubmitFeed).
 # Key from Bing Webmaster Tools > Settings > API access > API Key.
