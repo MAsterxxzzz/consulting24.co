@@ -20,6 +20,8 @@ sys.path.insert(0, os.path.join(ROOT, "scripts"))
 # a render/read-back cycle cannot pick up a second layer of entities. plain() is for
 # JSON-LD, which is never entity-decoded and so must carry real characters.
 from htmltext import plain, esc_text, esc_attr
+# DeepSeek writes bare <table>s; without the .t-wrap scroll box a 520px table widens the phone layout.
+from table_wrap import wrap_tables
 try:
     from regulators import sources_block as _sources_block
 except Exception:
@@ -548,7 +550,7 @@ def build(kind, slug, keyword, brief):
     user = f"Write a {kind} page. Primary keyword: \"{keyword}\". Slug: /{slug}/. Brief & facts: {brief}\nReturn STRICT JSON per the schema. Remember: 2000+ words, 8+ FAQs, full section structure, internal links from the allow-list, validated official authority links only."
     d = _repair(_trim_meta(_clean_d(call_deepseek(user))), keyword)
     page = assemble(slug, crumb, d, kind).replace('/panama-crypto-license/', '/').replace('/panama/', '/')  # guard: old project path → root
-    page = _table_scope(_sanitize_internal_links(page))  # strip hallucinated links + scope table headers
+    page = wrap_tables(_table_scope(_sanitize_internal_links(page)))[0]  # strip hallucinated links, scope table headers, box every table
     report = qc(d, page, keyword)
     # auto-expand if the only failure is word count (up to 2 retries)
     tries = 0
@@ -558,7 +560,7 @@ def build(kind, slug, keyword, brief):
         exp = (f"This draft is only {cur} words; it MUST reach 2300+. Expand it: deepen every section with more concrete detail, examples, a worked cost/timeline table, more on banking, compliance and common mistakes, and lengthen FAQ answers. Keep all existing internal links and authority_links. Return the SAME strict JSON schema with the fuller content.\n\nCURRENT JSON:\n" + json.dumps(d)[:12000])
         d = _repair(_trim_meta(_clean_d(call_deepseek(exp))), keyword)
         page = assemble(slug, crumb, d, kind).replace('/panama-crypto-license/', '/').replace('/panama/', '/')  # guard: old project path → root
-        page = _table_scope(_sanitize_internal_links(page))  # strip hallucinated links + scope table headers
+        page = wrap_tables(_table_scope(_sanitize_internal_links(page)))[0]  # strip hallucinated links, scope table headers, box every table
         report = qc(d, page, keyword)
         print(f"  expand retry {tries}: {report['words']} words")
     outdir = os.path.join(ROOT, slug) if kind=="landing" else os.path.join(ROOT, "blog", slug)
