@@ -120,8 +120,15 @@ def process(path, apply):
             if new and new != cur:
                 cur_esc = m.group(1).strip()                 # as it appears (escaped)
                 new_esc = html.escape(new)
-                # replace the exact escaped string everywhere (title, og:title, headline)
-                out = out.replace(cur_esc, new_esc)
+                # replace the old title only where it is the WHOLE value of <title>,
+                # og:/twitter:title or the schema headline. A bare str.replace() also
+                # rewrote the leading part of the <h1> and produced 318 garbled headings
+                # (Bing audit 28 Sep 2026, repaired by scripts/fix_h1.py).
+                out = out.replace(f"<title>{cur_esc}</title>", f"<title>{new_esc}</title>")
+                out = out.replace(f'content="{cur_esc}"', f'content="{new_esc}"')
+                out = out.replace(f'"headline":"{html.escape(cur, quote=False)}"',
+                                  f'"headline":"{html.escape(new, quote=False)}"')
+                out = out.replace(f'"headline":"{cur}"', f'"headline":"{new}"')
                 changed.append(f"title: {cur!r} -> {new!r}")
 
     # inject Official sources if missing
