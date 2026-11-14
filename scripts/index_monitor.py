@@ -3,14 +3,17 @@
 index_monitor.py — indexing watchdog for consulting24.co.
 
 Every URL in sitemap.xml is tracked from the day it first appears. For pages
-not yet confirmed indexed, it re-submits to IndexNow + Bing on an escalating
-schedule (1, 2, 3 days after first seen). On day >=4 still-not-indexed it runs a
+not yet confirmed indexed, it re-submits to Bing's URL Submission API on an escalating
+schedule (1, 2, 3 days after first seen). NOT to IndexNow: the protocol is for changed
+URLs only and asks not to resubmit unchanged ones (indexnow.org FAQ); IndexNow goes
+through the delta queue (publish.py -> scripts/indexnow.py flush) and nowhere else.
+On day >=4 still-not-indexed it runs a
 per-page QC audit, prints what to fix, does a FINAL resubmit, then marks the URL
 "escalated" so it stops nagging (and burning Bing's daily submission quota).
 
 Index status is a best-effort check via Bing's `url:` operator; if it can't be
 determined the URL is treated as not-yet-indexed and keeps its place in the
-schedule. Re-submitting an already-indexed URL is harmless (IndexNow/Bing dedupe).
+schedule. Re-submitting an already-indexed URL is harmless (Bing dedupes).
 
 State: config/index_status.json  (per-URL: first_seen, last_action, submits,
        indexed, escalated)
@@ -107,25 +110,6 @@ def check_indexed(url):
 
 
 # ---- submission ------------------------------------------------------------
-def submit_indexnow(urls):
-    keyfile = os.path.join(ROOT, ".indexnow-key")
-    if not (urls and os.path.exists(keyfile)):
-        return
-    key = read(keyfile).strip()
-    payload = json.dumps({
-        "host": HOST, "key": key,
-        "keyLocation": f"{BASE}/{key}.txt", "urlList": urls,
-    }).encode()
-    req = urllib.request.Request("https://api.indexnow.org/indexnow",
-                                 data=payload,
-                                 headers={"Content-Type": "application/json"})
-    try:
-        with urllib.request.urlopen(req, timeout=20) as r:
-            print(f"IndexNow resubmit: HTTP {r.status} for {len(urls)} URLs")
-    except Exception as e:
-        print(f"IndexNow resubmit failed (non-fatal): {e}")
-
-
 def submit_bing(urls):
     keyfile = os.path.join(SCRIPTS, ".bing_api_key")
     if not urls:
@@ -233,7 +217,6 @@ def main():
         return
 
     if due_resubmit:
-        submit_indexnow(due_resubmit)
         submit_bing(due_resubmit)
     print(f"index_monitor: {len(due_resubmit)} resubmitted "
           f"({len(escalated_now)} escalated/audited), {len(urls)} tracked")
