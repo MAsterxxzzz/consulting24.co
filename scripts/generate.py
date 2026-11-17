@@ -418,10 +418,6 @@ def _repair(d, keyword):
     def _covers(text):
         low = text.lower()
         return all(re.search(r'\b' + re.escape(tok) + r'\b', low) for tok in kwl.split())
-    # H1 must contain the keyword
-    h1 = (d.get("h1") or "").strip()
-    if not _covers(h1):
-        d["h1"] = f"{kwt}: {h1}" if h1 else f"{kwt}: 2026 Guide"
     # Title must contain the keyword
     t = (d.get("meta_title") or "").strip()
     if not _covers(t):
@@ -435,6 +431,12 @@ def _repair(d, keyword):
     if len(t) > 65:
         t = t[:65].rsplit(" ", 1)[0].rstrip(" .,:;&-")
     d["meta_title"] = t
+    # H1 must contain the keyword. Reuse the (keyword-bearing) title instead of
+    # prepending the keyword: "MiCA License: Crypto License: Complete Guide" style
+    # headings are what the 28 Sep 2026 Bing audit found on 318 pages (scripts/fix_h1.py).
+    h1 = (d.get("h1") or "").strip()
+    if not _covers(h1):
+        d["h1"] = t if _covers(t) else (f"{kwt}: {h1}" if h1 else f"{kwt}: 2026 Guide")
     # Description must be 110-165 chars. The build() retry only re-asks DeepSeek when the
     # WORD COUNT fails, so without this a merely-short description would fail qc() with no
     # retry and discard an otherwise-good page (daily_run gives up after MAX_ATTEMPTS).
